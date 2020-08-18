@@ -149,7 +149,7 @@ SOURCES = {
 			"SAT" : {"urlKey" : 's', "name" : 'Satellite', "description" : '', "format" : 'jpeg', "zmin" : 0, "zmax" : 22},
 			"MAP" : {"urlKey" : 'm', "name" : 'Map', "description" : '', "format" : 'png', "zmin" : 0, "zmax" : 22}
 		},
-		"urlTemplate": "http://mt0.google.com/vt/lyrs={LAY}&x={X}&y={Y}&z={Z}",
+		"urlTemplate": "http://mt0.google.cn/vt/lyrs={LAY}&x={X}&y={Y}&z={Z}",
 		"referer": "https://www.google.com/maps"
 	},
 
