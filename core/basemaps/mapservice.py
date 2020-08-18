@@ -359,6 +359,9 @@ class MapService():
 
 	# resampling algo for reprojection
 	RESAMP_ALG = 'BL' #NN:Nearest Neighboor, BL:Bilinear, CB:Cubic, CBS:Cubic Spline, LCZ:Lanczos
+	
+	google_subdomains = ['0', '1', '2', '3']
+	google_subdomains_index = 0
 
 	def __init__(self, srckey, cacheFolder, dstGridKey=None):
 
@@ -539,6 +542,12 @@ class MapService():
 			else:
 				bbox = ','.join(map(str,[xmin,ymin,xmax,ymax]))
 			url = url.replace("{BBOX}", bbox)
+
+		if self.name == 'Google':
+			url = url.replace("{S}", self.google_subdomains[self.google_subdomains_index])
+			self.google_subdomains_index += 1
+			if self.google_subdomains_index == len(self.google_subdomains):
+				self.google_subdomains_index = 0
 
 		return url
 
