@@ -24,6 +24,7 @@ elif PY3:
     from io import StringIO
     from urllib.request import urlopen, Request
     from urllib.error import HTTPError
+    import ssl
 
 
 def is_valid_type(element, cls):
@@ -77,7 +78,7 @@ class Overpass(object):
             req.add_header('User-Agent', self.user_agent)
 
         try:
-            f = urlopen(req, query)
+            f = urlopen(req, query, context=ssl._create_unverified_context())
         except HTTPError as e:
             f = e
 
